@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>沢宮いうら | 動画クリエイター ポートフォリオサイト</title>
+    <title>沢宮いうら | ポートフォリオ</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
     <!-- Google Fonts: Noto Sans JP -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,7 +91,6 @@
         <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
             <div>
                 <h1 class="text-3xl font-bold text-sky-400">Iura Sawamiya Portfolio</h1>
-                <p class="text-lg text-slate-400">想いをカタチにする映像制作</p>
             </div>
             <nav id="main-nav" class="mt-4 sm:mt-0 flex-shrink-0">
                 <div class="inline-flex items-center gap-2 p-1 bg-slate-800/60 rounded-lg">
@@ -112,7 +111,7 @@
                 After Effectsを軸に、心に残るモーショングラフィックスと映像編集を提供します。<br>
                 『歌ってみた』MV、MAD、ボイスコミックなど、ジャンルを問わず幅広い制作に対応。<br>
                 最新の制作実績やメイキングはXで随時更新しています。<br>
-                ご依頼・ご相談は、下のアイコンからお気軽にご連絡ください。
+                ご依頼・ご相談は、下の連絡先からお気軽にご連絡ください。
             </p>
 
             <!-- 実績カウンターと対応ジャンル -->
@@ -124,7 +123,7 @@
                 <!-- その他対応可能ジャンル -->
                 <div>
                     <h3 class="text-lg font-semibold text-sky-400 mb-3">幅広いジャンルに対応</h3>
-                    <p class="text-sm text-slate-300 mb-4">MV制作以外にも、企業案件として下記ジャンルの制作経験がございます。</p>
+                    <p class="text-sm text-slate-300 mb-4">企業案件では、下記ジャンルの制作も承っております。</p>
                     <div class="flex flex-wrap justify-center gap-2">
                         <span class="bg-slate-700/50 text-slate-300 text-xs font-semibold px-3 py-1 rounded-full">アニメ切り抜き</span>
                         <span class="bg-slate-700/50 text-slate-300 text-xs font-semibold px-3 py-1 rounded-full">アニメ配信切り抜き</span>
@@ -136,13 +135,14 @@
             </div>
 
             <!-- SNS・連絡先リンク -->
-            <div class="flex justify-center items-center space-x-8">
+            <div class="flex flex-col justify-center items-center gap-y-4">
                 <a href="https://x.com/iura_sawamiya" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-sky-400 transition-colors duration-300" aria-label="X">
                     <i class="fa-brands fa-x-twitter fa-2x"></i>
                 </a>
-                <a href="mailto:iura.sawamiya@gmail.com" class="text-slate-300 hover:text-sky-400 transition-colors duration-300" aria-label="Email">
-                    <i class="fa-solid fa-envelope fa-2x"></i>
-                </a>
+                <div class="flex items-center gap-3 text-slate-300" aria-label="Email">
+                    <i class="fa-solid fa-envelope fa-lg"></i>
+                    <span class="font-semibold text-base">iura.sawamiya@gmail.com</span>
+                </div>
             </div>
         </div>
     </section>
@@ -150,7 +150,7 @@
     <!-- 制作実績ページ -->
     <main id="works-page" class="page-content container mx-auto px-6 py-12">
         <h2 class="text-3xl font-bold text-center text-white mb-2" data-aos="fade-up">制作実績</h2>
-        <p class="mb-8 text-center text-slate-400" data-aos="fade-up" data-aos-delay="100">これまでに制作を担当した作品の一部です。カテゴリや年で絞り込んでご覧いただけます。</p>
+        <p class="mb-8 text-center text-slate-400" data-aos="fade-up" data-aos-delay="100">これまでに制作を担当した作品一覧です。カテゴリや年で絞り込んでご覧いただけます。</p>
 
         <!-- フィルターセクション -->
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10" data-aos="fade-up" data-aos-delay="200">
@@ -159,7 +159,7 @@
                 <button class="filter-btn active whitespace-nowrap px-4 py-2 rounded-md text-sm font-semibold transition-all duration-300" data-filter="all">すべて</button>
                 <button class="filter-btn whitespace-nowrap px-4 py-2 text-slate-300 hover:bg-slate-700/50 rounded-md text-sm font-semibold transition-all duration-300" data-filter="uta-full">MV (Full)</button>
                 <button class="filter-btn whitespace-nowrap px-4 py-2 text-slate-300 hover:bg-slate-700/50 rounded-md text-sm font-semibold transition-all duration-300" data-filter="uta-short">MV (Short)</button>
-                <button class="filter-btn whitespace-nowrap px-4 py-2 text-slate-300 hover:bg-slate-700/50 rounded-md text-sm font-semibold transition-all duration-300" data-filter="illust">Illustrated video</button>
+                <button class="filter-btn whitespace-nowrap px-4 py-2 text-slate-300 hover:bg-slate-700/50 rounded-md text-sm font-semibold transition-all duration-300" data-filter="illust-short">Illust (Short)</button>
             </div>
 
             <!-- 年フィルタードロップダウン -->
@@ -371,7 +371,7 @@
                     const counts = {
                         'uta-full': 0,
                         'uta-short': 0,
-                        'illust': 0
+                        'illust-short': 0
                     };
 
                     videos.forEach(video => {
@@ -390,8 +390,8 @@
                             <span class="text-sm text-slate-400">MV (Short)</span>
                         </div>
                         <div class="text-center">
-                            <span class="block text-2xl font-bold text-white">${counts['illust']}</span>
-                            <span class="text-sm text-slate-400">Illustrated video</span>
+                            <span class="block text-2xl font-bold text-white">${counts['illust-short']}</span>
+                            <span class="text-sm text-slate-400">Illust (Short)</span>
                         </div>
                     `;
                     
@@ -491,7 +491,7 @@
             if (lines.length <= 1) return [];
 
             const header = lines[0].split(',').map(h => h.trim());
-            const categoryMap = { '歌フル': 'uta-full', '歌ショート': 'uta-short', 'イラスト': 'illust' };
+            const categoryMap = { '歌フル': 'uta-full', '歌ショート': 'uta-short', 'イラストショート': 'illust-short' };
             const titleIndex = header.indexOf('タイトル');
             const dateIndex = header.indexOf('公開日');
             const urlIndex = header.indexOf('URL');
