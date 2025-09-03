@@ -42,6 +42,10 @@
             filter: blur(80px);
             opacity: 0.4;
         }
+        /* ナビゲーションボタンの基本スタイル */
+        .nav-btn {
+            transition: transform 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out, filter 0.2s ease-out;
+        }
         /* アクティブなナビ/フィルターボタンのスタイル */
         .nav-btn.active,
         .filter-btn.active {
@@ -49,8 +53,15 @@
             color: #ffffff;
             box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
         }
+        /* 非アクティブなボタンのホバーエフェクト */
         .nav-btn:not(.active):hover {
             background-color: #334155; /* slate-700 */
+            transform: scale(1.05);
+        }
+        /* アクティブなボタンのホバーエフェクト */
+        .nav-btn.active:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
         }
         /* 動画カードのホバーエフェクト */
         .card-hover-effect::before {
@@ -93,9 +104,15 @@
                 <h1 class="text-3xl font-bold text-sky-400">Iura Sawamiya Portfolio</h1>
             </div>
             <nav id="main-nav" class="mt-4 sm:mt-0 flex-shrink-0">
-                <div class="inline-flex items-center gap-2 p-1 bg-slate-800/60 rounded-lg">
-                    <button data-page="works-page" class="nav-btn active whitespace-nowrap px-4 py-2 text-sm font-semibold rounded-md transition-colors duration-300">制作実績</button>
-                    <button data-page="flow-page" class="nav-btn whitespace-nowrap px-4 py-2 text-sm font-semibold rounded-md transition-colors duration-300">制作フロー</button>
+                <div class="inline-flex items-center gap-2 p-1 bg-slate-800/60 rounded-lg shadow-lg shadow-sky-500/10">
+                    <button data-page="works-page" class="nav-btn active flex items-center gap-2 whitespace-nowrap px-5 py-2 text-base font-semibold rounded-md">
+                        <i class="fa-solid fa-layer-group w-5 text-center"></i>
+                        <span>制作実績</span>
+                    </button>
+                    <button data-page="flow-page" class="nav-btn flex items-center gap-2 whitespace-nowrap px-5 py-2 text-base font-semibold rounded-md">
+                        <i class="fa-solid fa-sitemap w-5 text-center"></i>
+                        <span>制作フロー</span>
+                    </button>
                 </div>
             </nav>
         </div>
@@ -191,61 +208,62 @@
         <div class="max-w-3xl mx-auto">
             <!-- 動画制作の流れ -->
             <div class="mb-16">
-                <h3 class="text-2xl font-bold text-sky-400 mb-8 text-center" data-aos="fade-up">動画制作の流れ</h3>
-                <div class="relative">
-                    <div class="absolute left-6 top-0 h-full w-0.5 bg-slate-700/50" aria-hidden="true"></div>
-                    <div class="space-y-12">
-                        <!-- Step 1 -->
-                        <div class="relative pl-16" data-aos="fade-up" data-aos-delay="200">
-                            <div class="absolute -left-0 top-0 flex items-center justify-center w-12 h-12 bg-slate-800 text-sky-400 rounded-full ring-4 ring-slate-900">
-                                <i class="fa-solid fa-lightbulb text-xl"></i>
-                            </div>
-                            <div class="bg-slate-800/50 p-6 rounded-lg shadow-lg">
-                                <h4 class="text-xl font-semibold text-white mb-2">Step 1: ラフ制作と方向性の確認</h4>
-                                <p class="text-slate-300">まず、動画全体の方向性を決めるために、ワンコーラス分のラフ動画を制作します。もし具体的な完成イメージがあれば、参考動画やイラストなど、どんな形でも構いませんのでぜひ共有してください。この段階ではスピードを重視するため、ラフな品質でのご提出となります。</p>
-                                <p class="text-xs text-slate-400 mt-2">目安期間: 1〜2週間</p>
-                            </div>
+                <h3 class="text-2xl font-bold text-sky-400 mb-8 text-center" data-aos="fade-up">ご依頼から納品まで</h3>
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative pl-16" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute left-6 top-12 -bottom-12 w-0.5 bg-slate-700/50" aria-hidden="true"></div>
+                        <div class="absolute -left-0 top-0 flex items-center justify-center w-12 h-12 bg-slate-800 text-sky-400 rounded-full ring-4 ring-slate-900">
+                            <i class="fa-solid fa-lightbulb text-xl"></i>
                         </div>
-                        <!-- Step 2 -->
-                        <div class="relative pl-16" data-aos="fade-up" data-aos-delay="300">
-                           <div class="absolute -left-0 top-0 flex items-center justify-center w-12 h-12 bg-slate-800 text-sky-400 rounded-full ring-4 ring-slate-900">
-                               <i class="fa-solid fa-comments text-xl"></i>
-                           </div>
-                            <div class="bg-slate-800/50 p-6 rounded-lg shadow-lg">
-                                <h4 class="text-xl font-semibold text-white mb-2">Step 2: フィードバックと修正</h4>
-                                <p class="text-slate-300">ラフ動画をご確認いただき、修正点を伺います。「もっとこうしたい」というご意見大歓迎です！最高の作品を一緒に作り上げるため、ご納得いただけるまで何度でも修正いたします。</p>
-                            </div>
+                        <div class="bg-slate-800/50 p-6 rounded-lg shadow-lg">
+                            <h4 class="text-xl font-semibold text-white mb-2">Step 1: ラフ制作と方向性の確認</h4>
+                            <p class="text-slate-300">まず、動画全体の方向性を決めるために、ワンコーラス分のラフ動画を制作します。もし具体的な完成イメージがあれば、参考動画やイラストなど、どんな形でも構いませんのでぜひ共有してください。この段階ではスピードを重視するため、ラフな品質でのご提出となります。</p>
+                            <p class="text-xs text-slate-400 mt-2">目安期間: 1〜2週間</p>
                         </div>
-                        <!-- Step 3 -->
-                        <div class="relative pl-16" data-aos="fade-up" data-aos-delay="400">
-                            <div class="absolute -left-0 top-0 flex items-center justify-center w-12 h-12 bg-slate-800 text-sky-400 rounded-full ring-4 ring-slate-900">
-                                <i class="fa-solid fa-film text-xl"></i>
-                            </div>
-                            <div class="bg-slate-800/50 p-6 rounded-lg shadow-lg">
-                                <h4 class="text-xl font-semibold text-white mb-2">Step 3: フルバージョンの制作</h4>
-                                <p class="text-slate-300">動画の方向性が固まったら、フルバージョンの制作に入ります。制作が難航しそうな場合は事前にご相談しますが、進捗は最低でも週に1回ご報告します。その都度、気になる点があればお気軽にご意見ください。</p>
-                                <p class="text-xs text-slate-400 mt-2">目安期間: 1〜2週間</p>
-                            </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="relative pl-16" data-aos="fade-up" data-aos-delay="300">
+                       <div class="absolute left-6 top-12 -bottom-12 w-0.5 bg-slate-700/50" aria-hidden="true"></div>
+                       <div class="absolute -left-0 top-0 flex items-center justify-center w-12 h-12 bg-slate-800 text-sky-400 rounded-full ring-4 ring-slate-900">
+                           <i class="fa-solid fa-comments text-xl"></i>
+                       </div>
+                        <div class="bg-slate-800/50 p-6 rounded-lg shadow-lg">
+                            <h4 class="text-xl font-semibold text-white mb-2">Step 2: フィードバックと修正</h4>
+                            <p class="text-slate-300">ラフ動画をご確認いただき、修正点を伺います。「もっとこうしたい」というご意見大歓迎です！最高の作品を一緒に作り上げるため、ご納得いただけるまで何度でも修正いたします。</p>
                         </div>
-                        <!-- Step 4 -->
-                        <div class="relative pl-16" data-aos="fade-up" data-aos-delay="500">
-                             <div class="absolute -left-0 top-0 flex items-center justify-center w-12 h-12 bg-slate-800 text-sky-400 rounded-full ring-4 ring-slate-900">
-                                <i class="fa-solid fa-check-double text-xl"></i>
-                             </div>
-                             <div class="bg-slate-800/50 p-6 rounded-lg shadow-lg">
-                                <h4 class="text-xl font-semibold text-white mb-2">Step 4: 最終確認と仕上げ</h4>
-                                <p class="text-slate-300">完成したフルバージョンの動画をご確認いただき、最終調整を行います。こちらもラフ制作時と同様、ご満足いただけるまで丁寧に対応します。</p>
-                            </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative pl-16" data-aos="fade-up" data-aos-delay="400">
+                        <div class="absolute left-6 top-12 -bottom-12 w-0.5 bg-slate-700/50" aria-hidden="true"></div>
+                        <div class="absolute -left-0 top-0 flex items-center justify-center w-12 h-12 bg-slate-800 text-sky-400 rounded-full ring-4 ring-slate-900">
+                            <i class="fa-solid fa-film text-xl"></i>
                         </div>
-                        <!-- Step 5 -->
-                        <div class="relative pl-16" data-aos="fade-up" data-aos-delay="600">
-                            <div class="absolute -left-0 top-0 flex items-center justify-center w-12 h-12 bg-slate-800 text-sky-400 rounded-full ring-4 ring-slate-900">
-                                <i class="fa-solid fa-paper-plane text-xl"></i>
-                            </div>
-                            <div class="bg-slate-800/50 p-6 rounded-lg shadow-lg">
-                                <h4 class="text-xl font-semibold text-white mb-2">Step 5: 高画質データで納品</h4>
-                                <p class="text-slate-300">すべての調整が完了したら、最終版を高画質・高音質データで書き出して納品します。制作途中のご確認用動画は、やり取りをスムーズにするため軽量なデータでお送りしますが、最終納品物は最高品質ですのでご安心ください。</p>
-                            </div>
+                        <div class="bg-slate-800/50 p-6 rounded-lg shadow-lg">
+                            <h4 class="text-xl font-semibold text-white mb-2">Step 3: フルバージョンの制作</h4>
+                            <p class="text-slate-300">動画の方向性が固まったら、フルバージョンの制作に入ります。制作が難航しそうな場合は事前にご相談しますが、進捗は最低でも週に1回ご報告します。その都度、気になる点があればお気軽にご意見ください。</p>
+                            <p class="text-xs text-slate-400 mt-2">目安期間: 1〜2週間</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="relative pl-16" data-aos="fade-up" data-aos-delay="500">
+                         <div class="absolute left-6 top-12 -bottom-12 w-0.5 bg-slate-700/50" aria-hidden="true"></div>
+                         <div class="absolute -left-0 top-0 flex items-center justify-center w-12 h-12 bg-slate-800 text-sky-400 rounded-full ring-4 ring-slate-900">
+                            <i class="fa-solid fa-check-double text-xl"></i>
+                         </div>
+                         <div class="bg-slate-800/50 p-6 rounded-lg shadow-lg">
+                            <h4 class="text-xl font-semibold text-white mb-2">Step 4: 最終確認と仕上げ</h4>
+                            <p class="text-slate-300">完成したフルバージョンの動画をご確認いただき、最終調整を行います。こちらもラフ制作時と同様、ご満足いただけるまで丁寧に対応します。</p>
+                        </div>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="relative pl-16" data-aos="fade-up" data-aos-delay="600">
+                        <div class="absolute -left-0 top-0 flex items-center justify-center w-12 h-12 bg-slate-800 text-sky-400 rounded-full ring-4 ring-slate-900">
+                            <i class="fa-solid fa-paper-plane text-xl"></i>
+                        </div>
+                        <div class="bg-slate-800/50 p-6 rounded-lg shadow-lg">
+                            <h4 class="text-xl font-semibold text-white mb-2">Step 5: 高画質データで納品</h4>
+                            <p class="text-slate-300">すべての調整が完了したら、最終版を高画質・高音質データで書き出して納品します。制作途中のご確認用動画は、やり取りをスムーズにするため軽量なデータでお送りしますが、最終納品物は最高品質ですのでご安心ください。</p>
                         </div>
                     </div>
                 </div>
@@ -302,16 +320,16 @@
             
             // --- ページ切り替えロジック ---
             mainNav.addEventListener('click', (e) => {
-                if (!e.target.classList.contains('nav-btn')) return;
-
-                const targetPageId = e.target.dataset.page;
+                if (!e.target.closest('.nav-btn')) return;
+                const button = e.target.closest('.nav-btn');
+                const targetPageId = button.dataset.page;
                 
                 pages.forEach(page => {
                     page.classList.toggle('hidden', page.id !== targetPageId);
                 });
 
                 mainNav.querySelector('.active').classList.remove('active');
-                e.target.classList.add('active');
+                button.classList.add('active');
 
                 // ページを切り替えたらトップにスクロール
                 window.scrollTo(0, 0);
@@ -450,10 +468,11 @@
 
                 if (categoryFilterContainer) {
                     categoryFilterContainer.addEventListener('click', (e) => {
-                        if (e.target.tagName !== 'BUTTON') return;
-                        currentCategory = e.target.dataset.filter;
+                        if (!e.target.closest('.filter-btn')) return;
+                        const button = e.target.closest('.filter-btn');
+                        currentCategory = button.dataset.filter;
                         categoryFilterContainer.querySelector('.active').classList.remove('active');
-                        e.target.classList.add('active');
+                        button.classList.add('active');
                         renderVideos();
                     });
                 }
