@@ -106,6 +106,11 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* カードのホバー時の光沢 */
+        .card-shine::after {
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); transform: scale(0); transition: transform 0.6s ease-out; pointer-events: none;
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-300 relative overflow-x-hidden min-h-screen selection:bg-sky-500/30 selection:text-white">
@@ -119,7 +124,7 @@
 
     <!-- ヘッダー（フローティングナビゲーション） -->
     <header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
-        <nav class="glass-panel rounded-full px-3 py-2 flex items-center shadow-2xl shadow-black/40 ring-1 ring-white/5">
+        <nav class="glass-panel rounded-full px-3 py-2 flex items-center shadow-2xl shadow-black/40 ring-1 ring-white/10 backdrop-blur-xl">
             <div class="hidden sm:block px-4 font-bold text-white tracking-widest text-sm mr-2">
                 IURA SAWAMIYA
             </div>
@@ -145,12 +150,12 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
             
             <!-- プロフィールメインカード -->
-            <div class="md:col-span-5 lg:col-span-4 glass-panel rounded-[2rem] p-8 flex flex-col items-center text-center relative overflow-hidden group" data-aos="fade-up">
+            <div class="md:col-span-5 lg:col-span-4 glass-panel rounded-[2.5rem] p-8 flex flex-col items-center text-center relative overflow-hidden group border-white/10" data-aos="fade-up">
                 <!-- 背景グラデーション（青系） -->
                 <div class="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-sky-900/20 to-transparent -z-10"></div>
                 
                 <div class="relative w-36 h-36 mb-6">
-                    <div class="absolute inset-0 bg-gradient-to-br from-sky-400 to-indigo-600 rounded-full blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-sky-400 to-indigo-600 rounded-full blur-xl opacity-40 group-hover:opacity-80 transition-opacity duration-500"></div>
                     <img class="w-full h-full rounded-full border-4 border-slate-900 object-cover relative z-10 shadow-2xl" src="profile.png" alt="プロフィール画像">
                 </div>
                 
@@ -164,10 +169,10 @@
 
                 <!-- SNS Links -->
                 <div class="flex gap-3 w-full mt-auto">
-                    <a href="https://x.com/iura_sawamiya" target="_blank" class="flex-1 bg-slate-950/50 hover:bg-black text-slate-300 hover:text-white py-3 rounded-xl flex items-center justify-center transition-all border border-white/5 hover:border-sky-500/50 group/icon">
+                    <a href="https://x.com/iura_sawamiya" target="_blank" class="flex-1 bg-white/5 hover:bg-sky-500/20 text-slate-300 hover:text-white py-3.5 rounded-2xl flex items-center justify-center transition-all border border-white/5 hover:border-sky-500/50 group/icon">
                         <i class="fa-brands fa-x-twitter text-xl group-hover/icon:scale-110 transition-transform"></i>
                     </a>
-                    <a href="mailto:iura.sawamiya@gmail.com" class="flex-1 bg-slate-950/50 hover:bg-black text-slate-300 hover:text-white py-3 rounded-xl flex items-center justify-center transition-all border border-white/5 hover:border-sky-500/50 group/icon">
+                    <a href="mailto:iura.sawamiya@gmail.com" class="flex-1 bg-white/5 hover:bg-indigo-500/20 text-slate-300 hover:text-white py-3.5 rounded-2xl flex items-center justify-center transition-all border border-white/5 hover:border-indigo-500/50 group/icon">
                         <i class="fa-solid fa-envelope text-xl group-hover/icon:scale-110 transition-transform"></i>
                     </a>
                 </div>
@@ -176,7 +181,7 @@
             <!-- 右側エリア -->
             <div class="md:col-span-7 lg:col-span-8 flex flex-col gap-4 md:gap-6">
                 <!-- 実績カウンター -->
-                <div class="glass-panel rounded-[2rem] p-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-panel rounded-[2.5rem] p-8" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex items-center justify-between mb-6">
                         <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">制作実績サマリー</h3>
                         <div class="h-px flex-1 bg-white/5 ml-4"></div>
@@ -192,7 +197,7 @@
 
                 <!-- 対応ジャンル & インフォ -->
                 <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                    <div class="glass-panel rounded-[2rem] p-8 flex flex-col justify-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-panel rounded-[2.5rem] p-8 flex flex-col justify-center" data-aos="fade-up" data-aos-delay="200">
                         <h3 class="text-xs font-bold text-slate-500 uppercase mb-4 tracking-wider">得意なジャンル・スキル</h3>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1.5 rounded-lg bg-sky-500/10 text-sky-300 text-xs font-bold border border-sky-500/20">After Effects</span>
@@ -204,7 +209,7 @@
                         </div>
                     </div>
 
-                    <div class="glass-panel rounded-[2rem] p-8 flex flex-col justify-center relative overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-panel rounded-[2.5rem] p-8 flex flex-col justify-center relative overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
                         <div class="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <h3 class="text-xs font-bold text-slate-500 uppercase mb-4 tracking-wider">対応スピード</h3>
                         <div class="space-y-4 relative z-10">
@@ -248,8 +253,8 @@
                 <!-- カテゴリ -->
                 <div id="category-filters" class="flex-1 flex gap-1 overflow-x-auto no-scrollbar">
                     <button class="filter-btn active whitespace-nowrap px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 hover:bg-white/5" data-filter="all">すべて</button>
-                    <button class="filter-btn whitespace-nowrap px-5 py-2.5 rounded-xl text-sm font-bold text-slate-400 transition-all duration-300 hover:bg-white/5 hover:text-white" data-filter="uta-full">MV (Full)</button>
-                    <button class="filter-btn whitespace-nowrap px-5 py-2.5 rounded-xl text-sm font-bold text-slate-400 transition-all duration-300 hover:bg-white/5 hover:text-white" data-filter="uta-short">MV (Short)</button>
+                    <button class="filter-btn whitespace-nowrap px-5 py-2.5 rounded-xl text-sm font-bold text-slate-400 transition-all duration-300 hover:bg-white/5 hover:text-white" data-filter="mv-full">MV (Full)</button>
+                    <button class="filter-btn whitespace-nowrap px-5 py-2.5 rounded-xl text-sm font-bold text-slate-400 transition-all duration-300 hover:bg-white/5 hover:text-white" data-filter="mv-short">MV (Short)</button>
                     <button class="filter-btn whitespace-nowrap px-5 py-2.5 rounded-xl text-sm font-bold text-slate-400 transition-all duration-300 hover:bg-white/5 hover:text-white" data-filter="illust-short">イラスト動画</button>
                     <button class="filter-btn whitespace-nowrap px-5 py-2.5 rounded-xl text-sm font-bold text-slate-400 transition-all duration-300 hover:bg-white/5 hover:text-white" data-filter="voice-comic">ボイスコミック</button>
                 </div>
@@ -426,14 +431,14 @@
             const mainNav = document.getElementById('main-nav');
             const pages = document.querySelectorAll('.page-content');
             const toTopButton = document.getElementById('to-top-button');
-            
-            // --- ページ切り替えロジック ---
+
+            // --- ページ切り替え ---
             mainNav.addEventListener('click', (e) => {
                 const button = e.target.closest('.nav-btn');
                 if (!button) return;
                 
                 const targetPageId = button.dataset.page;
-                
+
                 pages.forEach(page => {
                     if (page.id === targetPageId) {
                         page.classList.remove('hidden');
@@ -444,20 +449,12 @@
                     }
                 });
 
-                // ナビゲーションの状態更新
                 mainNav.querySelectorAll('.nav-btn').forEach(btn => {
-                    btn.classList.remove('active', 'text-white');
-                    btn.classList.add('text-slate-500');
+                    btn.classList.toggle('active', btn === button);
+                    btn.classList.toggle('text-white', btn === button);
+                    btn.classList.toggle('text-slate-500', btn !== button);
                 });
-                button.classList.add('active', 'text-white');
-                button.classList.remove('text-slate-500');
             });
-
-            // 初期状態のナビゲーションスタイル設定
-            mainNav.querySelectorAll('.nav-btn').forEach(btn => {
-                if(!btn.classList.contains('active')) btn.classList.add('text-slate-500');
-            });
-
 
             // --- トップへ戻るボタン ---
             window.addEventListener('scroll', () => {
@@ -473,20 +470,22 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // --- 制作実績ロジック ---
+            // --- 制作実績データ処理 ---
             const worksPage = document.getElementById('works-page');
             if (worksPage) {
-                const videoList = worksPage.querySelector('#video-list');
-                const loadingMessage = worksPage.querySelector('#loading');
-                const categoryFilterContainer = worksPage.querySelector('#category-filters');
-                const yearFilterContainer = worksPage.querySelector('#year-filter-container');
-                const yearFilterButton = worksPage.querySelector('#year-filter-button');
-                const yearFilterLabel = worksPage.querySelector('#year-filter-label');
-                const yearFilterOptions = worksPage.querySelector('#year-filter-options');
-                
-                let allVideos = [];
-                let currentCategory = 'all';
-                let currentYear = 'all';
+                const videoList = document.getElementById('video-list');
+                const loadingMessage = document.getElementById('loading');
+                const categoryFilterContainer = document.getElementById('category-filters');
+                const yearFilterButton = document.getElementById('year-filter-button');
+                const yearFilterLabel = document.getElementById('year-filter-label');
+                const yearFilterOptions = document.getElementById('year-filter-options');
+
+                // 内部状態
+                const state = {
+                    videos: [],
+                    category: 'all',
+                    year: 'all'
+                };
 
                 fetch('videos.csv')
                     .then(response => {
@@ -494,15 +493,15 @@
                         return response.text();
                     })
                     .then(csvText => {
-                        allVideos = parseCSV(csvText);
-                        if (loadingMessage) loadingMessage.style.display = 'none';
+                        state.videos = parseCSV(csvText);
+                        loadingMessage.classList.add('hidden');
                         
-                        if (allVideos.length === 0) {
+                        if (state.videos.length === 0) {
                             if (videoList) videoList.innerHTML = '<p class="text-center col-span-full text-slate-500">表示できる作品がありません。</p>';
                             return;
                         }
                         
-                        updateProfileStats(allVideos);
+                        updateProfileStats(state.videos);
                         setupFilters();
                         renderVideos();
                     })
@@ -518,8 +517,8 @@
                     if (!countsContainer) return;
 
                     const counts = {
-                        'uta-full': 0,
-                        'uta-short': 0,
+                        'mv-full': 0,
+                        'mv-short': 0,
                         'illust-short': 0,
                         'voice-comic': 0 
                     };
@@ -532,11 +531,11 @@
 
                     const statsHTML = `
                         <div class="bg-slate-900/50 rounded-2xl p-4 flex flex-col items-center justify-center border border-white/5 hover:border-sky-500/30 transition-colors group">
-                            <span class="text-2xl font-black text-white group-hover:text-sky-400 transition-colors">${counts['uta-full']}</span>
+                            <span class="text-2xl font-black text-white group-hover:text-sky-400 transition-colors">${counts['mv-full']}</span>
                             <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">MV Full</span>
                         </div>
                         <div class="bg-slate-900/50 rounded-2xl p-4 flex flex-col items-center justify-center border border-white/5 hover:border-sky-500/30 transition-colors group">
-                            <span class="text-2xl font-black text-white group-hover:text-sky-400 transition-colors">${counts['uta-short']}</span>
+                            <span class="text-2xl font-black text-white group-hover:text-sky-400 transition-colors">${counts['mv-short']}</span>
                             <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Short</span>
                         </div>
                         <div class="bg-slate-900/50 rounded-2xl p-4 flex flex-col items-center justify-center border border-white/5 hover:border-sky-500/30 transition-colors group">
@@ -553,7 +552,7 @@
                 }
 
                 function setupFilters() {
-                    const years = [...new Set(allVideos.map(v => new Date(v.published_date).getFullYear()))]
+                    const years = [...new Set(state.videos.map(v => new Date(v.date).getFullYear()))]
                         .sort((a, b) => b - a);
                     
                     const baseOptionClasses = "block w-full text-left px-4 py-3 text-sm text-slate-400 hover:bg-white/5 hover:text-white transition-colors duration-200 border-b border-white/5 last:border-0";
@@ -568,27 +567,27 @@
 
                 function renderVideos() {
                     if (!videoList) return;
-                    const filteredVideos = allVideos.filter(video => {
-                        const videoYear = new Date(video.published_date).getFullYear().toString();
-                        const categoryMatch = currentCategory === 'all' || video.category === currentCategory;
-                        const yearMatch = currentYear === 'all' || videoYear === currentYear;
-                        return categoryMatch && yearMatch;
+                    const filtered = state.videos.filter(video => {
+                        const videoYear = new Date(video.date).getFullYear().toString();
+                        const catMatch = state.category === 'all' || video.category === state.category;
+                        const yearMatch = state.year === 'all' || videoYear === state.year;
+                        return catMatch && yearMatch;
                     });
 
                     videoList.innerHTML = '';
-                    if (filteredVideos.length === 0) {
+                    if (filtered.length === 0) {
                         videoList.innerHTML = '<p class="text-center col-span-full text-slate-500 py-10">該当する作品が見つかりませんでした。</p>';
                         return;
                     }
 
-                    const sortedVideos = filteredVideos.sort((a, b) => new Date(b.published_date) - new Date(a.published_date));
+                    const sortedVideos = filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
 
                     sortedVideos.forEach((video, index) => {
                         const videoId = getYouTubeVideoId(video.url);
                         if (videoId) {
                             // モダンなカードデザイン
                             const videoCard = `
-                                <div class="group relative bg-[#0f172a] rounded-2xl overflow-hidden border border-white/5 hover:border-sky-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-sky-500/10" data-aos="fade-up" data-aos-delay="${index * 50}">
+                                <div class="group relative bg-[#0f172a] rounded-2xl overflow-hidden border border-white/5 hover:border-sky-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-sky-500/10 hover:-translate-y-1 card-shine" data-aos="fade-up" data-aos-delay="${index * 30}">
                                     
                                     <!-- Thumbnail / Video Area -->
                                     <div class="relative pt-[56.25%] bg-black overflow-hidden">
@@ -598,13 +597,13 @@
                                     <!-- Info Area -->
                                     <div class="p-5 relative">
                                         <!-- カテゴリータグ -->
-                                        <div class="absolute -top-3 right-4 bg-slate-800 text-slate-300 text-[10px] font-bold px-2 py-1 rounded border border-white/10 shadow-lg uppercase tracking-wider">
+                                        <div class="absolute -top-3 right-4 bg-slate-800 text-slate-300 text-[9px] font-black px-2 py-1 rounded border border-white/10 shadow-lg uppercase tracking-tighter">
                                             ${getCategoryLabel(video.category)}
                                         </div>
                                         
                                         <h3 class="text-base font-bold text-white mb-2 line-clamp-1 group-hover:text-sky-400 transition-colors">${video.title}</h3>
                                         <div class="flex items-center justify-between text-xs text-slate-500">
-                                            <span><i class="fa-regular fa-calendar mr-1"></i> ${video.published_date.replace(/-/g, '.')}</span>
+                                            <span><i class="fa-regular fa-calendar mr-1"></i> ${video.date.replace(/-/g, '.')}</span>
                                             <span class="opacity-0 group-hover:opacity-100 transition-opacity text-sky-500">Watch <i class="fa-solid fa-arrow-right ml-1"></i></span>
                                         </div>
                                     </div>
@@ -617,8 +616,8 @@
 
                 function getCategoryLabel(catId) {
                     const map = {
-                        'uta-full': 'MV Full',
-                        'uta-short': 'MV Short',
+                        'mv-full': 'MV Full',
+                        'mv-short': 'MV Short',
                         'illust-short': 'Illust',
                         'voice-comic': 'Comic'
                     };
@@ -629,7 +628,7 @@
                     categoryFilterContainer.addEventListener('click', (e) => {
                         if (!e.target.closest('.filter-btn')) return;
                         const button = e.target.closest('.filter-btn');
-                        currentCategory = button.dataset.filter;
+                        state.category = button.dataset.filter;
                         
                         // スタイルの切り替え
                         categoryFilterContainer.querySelectorAll('.filter-btn').forEach(btn => {
@@ -662,7 +661,7 @@
                 if (yearFilterOptions) {
                     yearFilterOptions.addEventListener('click', (e) => {
                         if (e.target.tagName !== 'BUTTON') return;
-                        currentYear = e.target.dataset.filter;
+                        state.year = e.target.dataset.filter;
                         yearFilterLabel.textContent = e.target.textContent;
                         yearFilterOptions.classList.add('hidden');
                         yearFilterButton.querySelector('i').classList.remove('rotate-180');
@@ -671,7 +670,7 @@
                 }
 
                 document.addEventListener('click', (e) => {
-                    if (yearFilterContainer && !yearFilterContainer.contains(e.target) && yearFilterOptions && !yearFilterOptions.classList.contains('hidden')) {
+                    if (yearFilterOptions && !yearFilterOptions.classList.contains('hidden') && !e.target.closest('#year-filter-container')) {
                         yearFilterOptions.classList.add('hidden');
                         yearFilterButton.querySelector('i').classList.remove('rotate-180');
                     }
@@ -679,22 +678,16 @@
             }
         });
 
+        // CSVパース（クオーテーション対応）
         function parseCSV(text) {
             const lines = text.trim().split(/\r\n|\n/);
             if (lines.length <= 1) return [];
 
             const header = lines[0].split(',').map(h => h.trim());
-            const categoryMap = { 
-                '歌フル': 'uta-full', 
-                '歌ショート': 'uta-short', 
-                'イラストショート': 'illust-short',
-                'ボイスコミック': 'voice-comic'
-            };
-            
-            const titleIndex = header.indexOf('タイトル');
-            const dateIndex = header.indexOf('公開日');
-            const urlIndex = header.indexOf('URL');
-            const categoryIndex = header.indexOf('動画カテゴリ');
+            const categoryIndex = header.indexOf('category');
+            const urlIndex = header.indexOf('url');
+            const dateIndex = header.indexOf('date');
+            const titleIndex = header.indexOf('title');
 
             return lines.slice(1).map(line => {
                 if (line.trim() === '') return null;
@@ -708,13 +701,15 @@
                 if (values.length < header.length) return null;
 
                 const entry = {};
-                entry.title = values[titleIndex] || '';
-                entry.published_date = values[dateIndex] || '';
-                entry.url = urlIndex < values.length ? values[urlIndex] : '';
-                const categoryJP = categoryIndex < values.length ? values[categoryIndex] : '';
-                entry.category = categoryMap[categoryJP] || '';
+                // 引用符の除去とトリミングを行う共通関数
+                const clean = (val) => (val || '').replace(/^["']|["']$/g, '').trim();
                 
-                if (!entry.title || !entry.published_date || !entry.url || !entry.category) return null;
+                entry.category = clean(values[categoryIndex]);
+                entry.url = clean(values[urlIndex]);
+                entry.date = clean(values[dateIndex]);
+                entry.title = clean(values[titleIndex]);
+                
+                if (!entry.title || !entry.date || !entry.url || !entry.category) return null;
 
                 return entry;
             }).filter(Boolean);

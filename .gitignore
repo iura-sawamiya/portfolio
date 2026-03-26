@@ -1,0 +1,11 @@
+# バックアップファイルを無視
+*.bak
+BKvideos.csv
+
+# 作業用・分析用ファイルを無視
+OutputCSV.ipynb
+
+# Pythonのキャッシュディレクトリを無視
+__pycache__/
+*.py[cod]
+*$py.class
