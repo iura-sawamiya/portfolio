@@ -680,7 +680,9 @@
 
         // CSVパース（クオーテーション対応）
         function parseCSV(text) {
-            const lines = text.trim().split(/\r\n|\n/);
+            // BOM（Byte Order Mark）を削除
+            const sanitizedText = text.replace(/^\uFEFF/, '');
+            const lines = sanitizedText.trim().split(/\r\n|\n/);
             if (lines.length <= 1) return [];
 
             const header = lines[0].split(',').map(h => h.trim());
